@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /**
 *
-* Horizontal Slider
+* Vertical Slider
 *
 * @copyright	Copyright 2010-2011 | MEN AT WORK
 * @link 		http://www.men-at-work.de
@@ -14,7 +14,7 @@
   .slider {  
   	display:block; 
   	position:relative; 
-  	padding:0 20px;
+  	padding:30px 0;
 	margin:0 auto;
   }
   
@@ -29,8 +29,8 @@
   	cursor:pointer; 
   	width:25px; 
   	height:25px; 
-  	top:50%; 
-	margin-top:-13px;
+  	left:50%; 
+	margin-left:-13px;
 	text-indent:-99999px;
 	z-index:111;
 	background-repeat:no-repeat;
@@ -38,13 +38,13 @@
   }
   
   .js-slider .slider .fwd { 
-  	right:5px; 
-  	background-image:url(../images/forward_horizontal.png); 
+  	top:0; 
+  	background-image:url(../images/forward_vertical.png);
   }
   
   .js-slider .slider .bk { 
-  	left:5px; 
-  	background-image:url(../images/back_horizontal.png); 
+  	bottom:0; 
+  	background-image:url(../images/back_vertical.png);
   }
   
   .slider .fwd, 
@@ -69,7 +69,8 @@
   
   .slider_items .block { 
   	position:relative; 
-  	float:left;
+  	display:block;
+	margin:0 auto;
   }
 
 }
