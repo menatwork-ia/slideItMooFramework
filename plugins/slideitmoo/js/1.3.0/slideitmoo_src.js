@@ -156,7 +156,7 @@ var SlideItMoo = new Class({
 	},
 	/* slides elements */
 	slide: function( direction ){
-		console.log(direction);
+		
 		if(this.started) return;
 		this.direction = direction ? direction : this.direction;
 		var currentIndex = this.currentIndex();
@@ -169,7 +169,7 @@ var SlideItMoo = new Class({
 				if( this.endingElem < 0 ) this.endingElem = this.totalElements-1;
 			}
 		}	
-
+		
 		var s = new Hash();
 		var fxDist = 0;
 		if( this.options.slideVertical ){
@@ -179,17 +179,13 @@ var SlideItMoo = new Class({
 			s.include('margin-left', -this.elementWidth);
 			fxDist = this.direction == 1 ? -this.elementWidth : 0;
 		}
-		console.log("Sill here");
-		console.log(s);
-		console.log(this.options.thumbsContainer);
-		console.log($(this.options.thumbsContainer));
+		
 		if( this.direction == -1 ){
 			this.rearange();
-			console.log(this.options.thumbsContainer);
 			$(this.options.thumbsContainer).setStyles(s);			
 		}
 		this.started = true;
-		console.log("Sill here3");
+		
 		if(!typeOf(this.endingElem))
 			this.endingElem = null;
 		
@@ -217,6 +213,7 @@ var SlideItMoo = new Class({
 	},
 	/* rearanges elements for continuous navigation */
 	rearange: function( rerun ){
+		
 		if(rerun) this.started = false;
 		if( rerun && this.direction == -1 ) return;
 		
@@ -225,6 +222,7 @@ var SlideItMoo = new Class({
 		var s = {};
 		if( this.options.slideVertical ) s['margin-top'] = 0;
 		else s['margin-left'] = 0;
+		
 		$(this.options.thumbsContainer).setStyles(s);
 		
 		if( this.currentElement == 1 && this.direction == 1 ){
@@ -235,6 +233,7 @@ var SlideItMoo = new Class({
 			this.rearrangeElement( this.elements.getLast(), this.direction == 1 ? this.elements[this.totalElements-2] : this.elements[0]);
 			return;
 		}
+		
 		if( this.direction == 1 ) this.rearrangeElement( this.elements[this.currentElement-1], this.elements[this.currentElement-2]);
 		else this.rearrangeElement( this.elements[this.currentElement], this.elements[this.currentElement+1]);			
 	},
