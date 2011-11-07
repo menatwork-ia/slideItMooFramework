@@ -1,7 +1,9 @@
 /**
-	SlideItMoo v1.1 - Image slider for MooTools 1.3
+	SlideItMoo v1.2 - Image slider for MooTools 1.3 (MooTools 1.4 compatible)
 	(c) 2007-2010 Constantin Boiangiu <http://www.php-help.ro>
 	MIT-style license.
+	
+	More details on: http://www.php-help.ro/php-tutorials/slideitmoo-v11-image-slider/
 	
 	Changes from version 1.0
 	- added continuous navigation
@@ -22,6 +24,13 @@
 			}
 	- new method available resetAll(). When called, this will reset the previous settings and restart the script. Useful if you change slider content on-the-fly
 	- new method available to stop autoSlide ( stopAutoSlide() ). To start autoslide back, use startAutoSlide()
+	
+	Updates ( March 24th 2011 )
+	- compatibility with MooTools 1.3
+	
+	Updates ( November 7th 2011 )
+	- MooTools 1.3 compat/no-compat errors solved
+	
 **/
 var SlideItMoo = new Class({
 	
@@ -170,13 +179,13 @@ var SlideItMoo = new Class({
 			}
 		}	
 		
-		var s = new Hash();
+		var s = {};
 		var fxDist = 0;
 		if( this.options.slideVertical ){
-			s.include('margin-top', -this.elementHeight);
+			s['margin-top'] = -this.elementHeight;
 			fxDist = this.direction == 1 ? -this.elementHeight : 0;
 		}else{
-			s.include('margin-left', -this.elementWidth);
+			s['margin-left'] = -this.elementWidth;
 			fxDist = this.direction == 1 ? -this.elementWidth : 0;
 		}
 		
