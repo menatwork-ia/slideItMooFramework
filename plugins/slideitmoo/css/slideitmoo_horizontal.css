@@ -18,7 +18,7 @@
 	margin:0 auto;
   }
   
- /*------------------------------------------------------------------------*/ 
+ /*---------------------------------------------------------------------------*/ 
  /* Style forward/backward button if navigation is active */
  /* Navigation gestalten wenn Sie im Backend aktiviert ist */
  
@@ -52,7 +52,7 @@
 	display:none;
   }
 
- /*------------------------------------------------------------------------*/ 
+ /*---------------------------------------------------------------------------*/ 
   
   .slider_inner { 
   	position:relative; 
@@ -70,6 +70,28 @@
   .slider_items .block { 
   	position:relative; 
   	float:left;
+  }
+  
+  /*--------------------------------------------------------------------------*/
+  
+  .slider .bulletlist {
+      display:block;
+      text-align:center;
+  }
+  
+  .slider .bulletlist .bullet {
+      width:10px;
+      height:10px;
+      display:inline-block;
+      border:1px solid #000;
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+      border-radius:10px;
+      behavior:url("plugins/css3pie/PIE.htc");
+  }
+  
+  .slider .bulletlist .bullet.active {
+      background-color:#000;
   }
 
 }
