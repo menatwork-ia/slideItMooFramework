@@ -157,7 +157,7 @@ var SlideItMoo = new Class({
         if( this.options.slideVertical ){
             //overallSize.height = this.options.itemsVisible * this.elementHeight + 50 * this.options.showControls;                    
             scrollSize.height = this.options.itemsVisible * this.elementHeight;
-            thumbsSize.height = this.totalElements * (this.elementHeight + 10);
+            thumbsSize.height = this.totalElements * (parseInt(this.elementHeight) + 10);
         }else{
             /* if navigation is enabled, add the width to the overall size */
             var navsSize = 0;
