@@ -390,6 +390,9 @@ var SlideItMoo = new Class({
         // already scrolling, get out.
         if(this.isScrolling || this.targetSlide)
             return;
+        
+        clearInterval(this.autoSlide); 
+        
         var idx = el.retrieve('idx'),
         diff = idx - this.currentElement,
         dir =(diff > 0 ? 1 : -1);
