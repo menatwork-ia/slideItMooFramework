@@ -106,7 +106,7 @@ var SlideItMoo = new Class({
         });
 
         /* if autoSlide is not set, scoll on mouse wheel */
-        if( this.options.mouseWheelNav && !this.options.autoSlide ){
+        if( this.options.mouseWheelNav ){
             $(this.options.thumbsContainer).addEvent('mousewheel', function(ev){
                 new Event(ev).stop();
                 this.slide(-ev.wheel);
@@ -318,7 +318,7 @@ var SlideItMoo = new Class({
     
     /* starts auto sliding */
     startAutoSlide: function(){
-        this.startIt = this.slide.bind(this).pass(this.direction|1);
+        this.startIt = this.slide.bind(this).pass(this.options.direction|1);
         this.autoSlide = this.startIt.periodical(this.autoSlideTotal, this);
         this.isRunning = true;
         this.elements.addEvents({
