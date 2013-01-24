@@ -69,7 +69,8 @@ var SlideItMoo = new Class({
         mouseWheelNav: false, /* enable mouse wheel nav */
         startIndex: null,
         showBullets: false, /* show clickable bullet list to slide to a certain slide. */
-        bulletContainer: null /* container element to where the bullet list shall be appended in. */
+        bulletContainer: null, /* container element to where the bullet list shall be appended in. */
+        bulletNumbers: false
         /*onChange: $empty*/
     },
 
@@ -370,11 +371,20 @@ var SlideItMoo = new Class({
         {
             var li = new Element('li', {
                 'class': 'bullet item'+((i + 1) * this.options.multiply)
-            })
+            })            
             .inject(this.bulletlist, 'bottom')
             .store('idx', i * this.options.multiply)
             .store('list', me);
             li.addEvent('click', this.clicked.pass(li, this));
+            
+            if(this.options.bulletNumbers) {
+              if(this.currentElement == i) {
+                li.adopt(new Element('span', {'html': i + 1}))
+              } else {
+                li.adopt(new Element('a', {'html': i + 1}))
+              }
+            }
+            
             this.bullets.push(li);
         }
         this.bullets[this.currentElement].addClass('active');
@@ -420,12 +430,26 @@ var SlideItMoo = new Class({
         
         this.bullets.each(function(e, i){
             if(i == idx){
+                if(this.options.bulletNumbers) {
+                  new Element('span', {
+                    html: e.getChildren()[0].get('html')
+                  }).replaces(e.getChildren()[0]);
+                }
+
                 e.addClass('active');
             }else{
+                if(this.options.bulletNumbers) {
+                  new Element('a', {
+                    html: e.getChildren()[0].get('html')
+                  }).replaces(e.getChildren()[0]);
+                }
+              
                 e.removeClass('active');
             }
-        });
+        }.bind(this));
     },
+    
+    
     
     /**
      *  Check if value is int or not and return it as boolean
