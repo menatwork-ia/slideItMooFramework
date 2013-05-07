@@ -116,7 +116,7 @@ var SlideItMoo = new Class({
 
         /* start index element */
         if( this.options.startIndex && this.options.startIndex > 0 && this.options.startIndex < this.elements.length ){
-            for( var t = 1; t < this.options.startIndex; t++ )
+            for( var t = 1; t <= this.options.startIndex; t++ )
                 this.rearange();
         }
 
